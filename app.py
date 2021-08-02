@@ -38,7 +38,41 @@ def chart2():
     """
     return render_template('pg1_2.html', graphJSON=graphJSON, header=header,description=description)
 
+@app.route('/chart3')
+def chart3():
+    df = pd.read_csv('all_diseases.csv')
 
+    fig = px.scatter_geo(df, locations="iso_code", size="cumulative_cases", color="disease")
 
-
+    graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    header="Cumulative Counts of Disease Across All Continents"
+    description = """
     
+    """
+    return render_template('pg2.html', graphJSON=graphJSON, header=header,description=description)
+
+@app.route('/chart4')
+def chart4():
+    df = pd.read_csv('all_diseases.csv')
+
+    fig = px.scatter_geo(df, locations="iso_code", size="cumulative_cases", color="disease")
+
+    graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    header="Cumulative Counts of Disease Across All Continents"
+    description = """
+    Bubble size represents counts of Covid, Dengue, Malaria, Zika
+    """
+    return render_template('pg3.html', graphJSON=graphJSON, header=header,description=description)
+
+@app.route('/chart5')
+def chart5():
+    df = pd.read_csv('all_diseases.csv')
+
+    fig = px.scatter_geo(df, locations="iso_code", size="cumulative_cases", color="disease")
+
+    graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    header="Cumulative Counts of Disease Across All Continents"
+    description = """
+    Bubble size represents counts of Covid, Dengue, Malaria, Zika
+    """
+    return render_template('pg4.html', graphJSON=graphJSON, header=header,description=description)

@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<body style="font-family:arial, sans-serif">
+    <h1>{{header}}</h1>
+    <h6><a href="/">Return to index page</a></h6>
+    <div id="chart" class="chart"></div>
+    <div>{{description}}</div>
+</body>
+
+<!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript">
+    var graphs = {{graphJSON | safe}};
+    Plotly.plot('chart',graphs,{});        
+</script> -->
+
+
+<!-- Malaria Line Fig -->
+
+<h1> Modeling Diseases Globally with Arima</h1>
+<div> Out of models tested we found Arima to be closest to true value in its predictions. 
+    <br>
+    Arima offers the average of a moving window as a prediction.
+    This makes it more useful for short term predictions, as for longer periods predictions stay a constant number.
+    <br>
+By iteratively refitting data with new observations of case counts accuracy was maintained throughout.
+<br>
+Below some examples of forecasts for different diseases and countries are shown.
+Case counts are recorded for a weekly basis. y-axis are true to scale.    </div>
+<br>
+<h2> Covid in Brazil</h2>
+<img src="/static/br_arima_covid.png" width="1800" height="500" >
+<br>
+
+<h2> Dengue in Brazil</h2>
+<img src="/static/br_arima_dengue.png" width="1800" height="500">
+<br>
+
+<h2> Covid in United States</h2>
+<img src="/static/us_arima_covid.png" width="1800" height="500">
+<br>
+
+<h2> Dengue in United States</h2>
+<img src="/static/us_arima_dengue.png" width="1800" height="500">
+<br>
+
+<h2> Zika in United States</h2>
+<img src="/static/us_arima_zika.png" width="1800" height="500">
+
+
+
+</html>
