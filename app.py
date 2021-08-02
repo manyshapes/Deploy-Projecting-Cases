@@ -36,10 +36,10 @@ def chart2():
     description = """
     Bubble size represents counts of Covid, Dengue, Malaria, Zika
     """
-    return render_template('pg1_2.html', graphJSON=graphJSON, header=header,description=description)
+    return render_template('notdash2.html', graphJSON=graphJSON, header=header,description=description)
 
 @app.route('/chart3')
-def chart2():
+def chart3():
     df = pd.read_csv('all_diseases.csv')
 
     fig = px.scatter_geo(df, locations="iso_code", size="cumulative_cases", color="disease")
@@ -49,6 +49,7 @@ def chart2():
     description = """
     Bubble size represents counts of Covid, Dengue, Malaria, Zika
     """
-    return render_template('pg2.html', graphJSON=graphJSON, header=header,description=description)
+    return render_template('pg1_2.html', graphJSON=graphJSON, header=header,description=description)
+
 
     
